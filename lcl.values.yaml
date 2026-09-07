@@ -1,0 +1,11 @@
+deployment:
+  replicas: 1
+auth:
+  strategy: "openid"
+  openid:
+    disable_rbac: true
+    insecure_skip_verify_tls: true
+    client_id: "kiali-client"
+    issuer_uri: "https://sso.${CLUSTER_DOMAIN}/realms/master"
+    username_claim: "preferred_username"
+    scopes: ["openid", "profile", "email"]
